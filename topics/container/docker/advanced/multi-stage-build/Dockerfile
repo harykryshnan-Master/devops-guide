@@ -7,7 +7,7 @@ COPY . .
 RUN yarn build
 
 # Stage 2: Run
-FROM nginx:alpine
+FROM nginx:1.29.5-alpine3.23
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
